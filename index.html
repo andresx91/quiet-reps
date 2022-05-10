@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiet Routines</title>
+        <style>
+            * {
+                font-family:'Courier New', Courier, monospace;
+            }
+            .qr-item {
+                border:1px solid black;
+                display:grid;
+                grid-template-columns: repeat(7, 1fr);
+                padding:10px;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <h1>Quiet Reps</h1>
+        <div id="qr_items_list">
+        </div>
+        <template id="item_template">
+            <div class="qr-item">
+                <div class="qr-item-text"></div>
+                <div> :: </div>
+                <div>
+                    Reps
+                    <input class="qr-item-reps" type="text" value="0" size="4" readonly="readonly"> 
+                </div>
+                <div>
+                    Done 
+                    <input class="qr-item-reps-done" type="text" value="0" size="4" readonly="readonly">
+                </div>
+                <div>
+                    To go
+                    <input class="qr-item-reps-togo" type="text" value="0" size="4" readonly="readonly">
+                </div>
+                <button class="qr-item-rep-done" type="button"
+                    onclick="setRepDone(this)">
+                    Rep Done
+                </button>
+            </div>
+        </template>
+        <script src="app.js"></script>
+    </body>
+</html>
