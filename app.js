@@ -1,36 +1,33 @@
-qr_items = [
-    {text: 'Streak - Eliminate 100', reps: 5},
-    {text: 'Speed - Easy', reps: 10},
-    {text: 'Streak - Eliminate 100', reps: 5},
-    {text: 'Speed - Medium', reps: 10},
-    {text: 'Streak - Eliminate 100', reps: 10},
-    {text: 'Speed - Hard', reps: 10},
+routine = [
+    {text: 'Push ups x 10', reps: 3},
+    {text: 'Squats x 10', reps: 3},
+    {text: 'Lunges x 10', reps: 3},
 ]
 
-setItems = function() {
-    item_list = document.getElementById('qr_items_list')
-    item_template = document.getElementById('item_template')
+setItemBlocks = function() {
+    item_block_list = document.getElementById('item_block_list')
+    item_block_template = document.getElementById('item_block_template')
 
-    qr_items.forEach(element => {
-        item = item_template.cloneNode(true).content
-        item_text = item.querySelector('.qr-item-text')
-        item_reps = item.querySelector('.qr-item-reps')
-        item_reps_done = item.querySelector('.qr-item-reps-done')
-        item_reps_togo = item.querySelector('.qr-item-reps-togo')
+    routine.forEach(item => {
+        item_block = item_block_template.cloneNode(true).content
+        item_text = item_block.querySelector('.item-text')
+        item_reps_total = item_block.querySelector('.item-reps-total')
+        item_reps_done = item_block.querySelector('.item-reps-done')
+        item_reps_togo = item_block.querySelector('.item-reps-togo')
 
-        item_text.textContent = "[" + element.text + "]"
-        item_reps.value = element.reps
-        item_reps_togo.value = element.reps
+        item_text.textContent = "[" + item.text + "]"
+        item_reps_total.value = item.reps
+        item_reps_togo.value = item.reps
 
-        item_list.append(item)
+        item_block_list.append(item_block)
     })
 }
 
 setRepDone = function(elem) {
-    qr_item = elem.parentElement
-    reps = qr_item.querySelector('.qr-item-reps')
-    reps_done = qr_item.querySelector('.qr-item-reps-done')
-    reps_togo = qr_item.querySelector('.qr-item-reps-togo')
+    item_block = elem.parentElement
+    reps = item_block.querySelector('.item-reps-total')
+    reps_done = item_block.querySelector('.item-reps-done')
+    reps_togo = item_block.querySelector('.item-reps-togo')
 
     if (reps_togo.value > 0) {
         reps_done.value = parseInt(reps_done.value) + 1
@@ -40,4 +37,4 @@ setRepDone = function(elem) {
     }
 }
 
-setItems()
+setItemBlocks()
