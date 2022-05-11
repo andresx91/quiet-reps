@@ -1,5 +1,0 @@
-quiet reps me permite regisrar una rutina de cualquier tipo e ir avanzando con sus repeticiones
-
-routine
-    has many items
-        has many reps
